@@ -36,12 +36,24 @@
   --col-neutral-900: #001549;
   --col-neutral-1000: #000c2b;
 
+  --col-orange-100: #f9dfc0;
+  --col-orange-200: #f7c994;
+  --col-orange-300: #f2a957;
+  --col-orange-400: #ed9b3d;
+  --col-orange-500: #e58b24;
+  --col-orange-600: #cc791a;
+  --col-orange-700: #9b5a11;
+  --col-orange-800: #683c0a;
+  --col-orange-900: #3f2405;
+
   /* Element colours */
   --col-fg: var(--col-neutral-900);
   --col-bg: var(--col-neutral-100);
   --col-bg-alternate: var(--col-neutral-200);
   --col-footer-bg: var(--col-neutral-800);
   --col-footer-fg: var(--col-neutral-200);
+  --col-message-bg: var(--col-orange-300);
+  --col-message-fg: var(--col-orange-900);
 
   --col-link: var(--col-neutral-600);
   --col-link-visited: var(--col-purple-600);
@@ -58,6 +70,8 @@
   --col-bg-alternate: var(--col-neutral-800);
   --col-footer-bg: var(--col-neutral-1000);
   --col-footer-fg: var(--col-neutral-300);
+  --col-message-bg: var(--col-orange-400);
+  --col-message-fg: var(--col-orange-900);
 
   --col-link: var(--col-neutral-300);
   --col-link-visited: var(--col-purple-300);
@@ -125,6 +139,20 @@ body {
 }
 .site-header__item:active {
   color: var(--col-link-active);
+}
+
+/* Messages */
+.message {
+  background-color: var(--col-message-bg);
+  color: var(--col-message-fg);
+  --col-link: var(--col-message-fg);
+  --col-link-visited: var(--col-message-fg);
+  --col-link-hover: var(--col-orange-700);
+  --col-link-active: var(--col-orange-100);
+}
+
+.message__content {
+  padding-block: 0.5rem;
 }
 
 /* Page header */
