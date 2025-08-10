@@ -204,6 +204,11 @@ body {
 .section {
   padding-block: 1rem;
 }
+
+.section--color-alternate {
+  background-color: var(--col-bg-alternate);
+}
+
 .section__body-text {
   padding-top: 1rem;
 }
