@@ -61,7 +61,7 @@
   --col-link-active: var(--col-blue-900);
 
   /* Lengths */
-  --len-header-height: 6rem;
+  --len-header-padding: 2rem;
 }
 
 :root.dark {
@@ -117,7 +117,7 @@ body {
 }
 
 .site-header__content {
-  height: var(--len-header-height);
+  padding-block: var(--len-header-padding);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -161,7 +161,7 @@ body {
   /* background-size: cover; */
   /* background-position: center; */
   width: 100%;
-  height: min(50rem, calc(70svh - var(--len-header-height)));
+  height: min(50rem, calc(70svh - 2 * (1rem + var(--len-header-padding))));
   position: relative;
 }
 
