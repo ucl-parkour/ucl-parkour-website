@@ -127,17 +127,23 @@ body {
   display: flex;
   gap: 2rem;
 }
+.site-header__item-group--mobile {
+  display: none;
+}
 
 .site-header__item {
+  cursor: pointer;
+  background: none;
+  border: none;
   color: var(--col-fg);
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: 500;
 }
-.site-header__item:hover {
+.site-header__item--link:hover {
   color: var(--col-link-hover);
 }
-.site-header__item:active {
+.site-header__item--link:active {
   color: var(--col-link-active);
 }
 
@@ -221,4 +227,24 @@ body {
 
 .site-footer__content {
   padding-block: 1rem;
+}
+
+/* Responsiveness */
+@media (max-width: 50rem) {
+  :root {
+    --len-header-padding: 1rem;
+  }
+
+  .site-header__content {
+    align-items: start;
+  }
+  .site-header__item-group--desktop {
+    display: none;
+  }
+  .site-header__item-group--mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 0.5rem;
+  }
 }

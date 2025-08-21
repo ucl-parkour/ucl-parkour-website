@@ -1,3 +1,4 @@
+// Color scheme
 function setColorScheme(darkMode) {
   const root = document.querySelector(":root");
   if (darkMode) {
@@ -17,4 +18,22 @@ if (window.matchMedia) {
     const prefersDark = event.matches;
     setColorScheme(prefersDark);
   });
+}
+
+// Mobile dropdown menu
+console.log(document.querySelectorAll(".js-dropdown"));
+for (const menu of document.querySelectorAll(".js-dropdown")) {
+  registerDropdownMenu(menu);
+}
+
+function registerDropdownMenu(menu) {
+  const button = menu.querySelector(".js-dropdown__button");
+  const items = menu.querySelectorAll(".js-dropdown__item");
+  button.addEventListener("click", toggle);
+
+  function toggle() {
+    for (const item of items) {
+      item.toggleAttribute("hidden");
+    }
+  }
 }
