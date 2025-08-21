@@ -61,7 +61,7 @@
   --col-link-active: var(--col-blue-900);
 
   /* Lengths */
-  --len-header-height: 100px;
+  --len-header-height: 6rem;
 }
 
 :root.dark {
