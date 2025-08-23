@@ -4,19 +4,15 @@
       <a href="." class="site-header__item site-header__item--link">UCL Parkour Club</a>
     </section>
     <section class="site-header__item-group site-header__item-group--desktop">
-      <a href="." class="site-header__item site-header__item--link">Skills</a>
-      <a href="." class="site-header__item site-header__item--link">Spot map</a>
-      <a href="." class="site-header__item site-header__item--link">Gallery</a>
-      <a href="." class="site-header__item site-header__item--link">Committee</a>
-      <a href="." class="site-header__item site-header__item--link">Contact us</a>
+      {% for item in header_items %}
+      <a href="." class="site-header__item site-header__item--link">{{ item }}</a>
+      {% endfor %}
     </section>
     <section class="site-header__item-group site-header__item-group--mobile js-dropdown">
       <button class="site-header__item js-dropdown__button">≡</button>
-      <a href="." class="site-header__item site-header__item--link js-dropdown__item" hidden>Skills</a>
-      <a href="." class="site-header__item site-header__item--link js-dropdown__item" hidden>Spot map</a>
-      <a href="." class="site-header__item site-header__item--link js-dropdown__item" hidden>Gallery</a>
-      <a href="." class="site-header__item site-header__item--link js-dropdown__item" hidden>Committee</a>
-      <a href="." class="site-header__item site-header__item--link js-dropdown__item" hidden>Contact us</a>
+      {% for item in header_items %}
+      <a href="." class="site-header__item site-header__item--link js-dropdown__item" hidden>{{ item }}</a>
+      {% endfor %}
     </section>
   </nav>
 </header>
