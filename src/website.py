@@ -3,7 +3,8 @@ from staticjinja import Site
 
 def render(use_reloader=False):
     site = Site.make_site(
-        outpath="./build/",
+        searchpath="src/templates",
+        outpath="build",
         staticpaths=["./css/", "./img/", "./fonts/"],
         env_globals={
             "header_items": [
