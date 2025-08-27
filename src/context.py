@@ -6,7 +6,7 @@ from pathlib import Path
 DATA_DIR = Path(__file__).parent.resolve() / "data"
 
 
-def get_global():
+def get_global(dev_mode):
     """Returns the global context which is available in all templates."""
     dir = DATA_DIR / "global"
     global_context = Context("global", dir)
@@ -15,6 +15,11 @@ def get_global():
         if filename.endswith(".csv"):
             global_context.add_from_csv(filename)
 
+    if dev_mode:
+        # GitHub pages handles the missing .html extension but local-server
+        # local-server does not.
+        for item in global_context.data["header_items"]:
+            item["url"] += ".html"
     return global_context.data
 
 
