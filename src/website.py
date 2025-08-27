@@ -9,5 +9,6 @@ def render(use_reloader=False):
         outpath="build",
         staticpaths=["./css/", "./img/", "./fonts/"],
         env_globals=context.get_global(),
+        contexts=context.get_local(),
     )
     site.render(use_reloader=use_reloader)

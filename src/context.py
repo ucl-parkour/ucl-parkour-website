@@ -18,6 +18,29 @@ def get_global():
     return global_context.data
 
 
+def get_local():
+    """Returns the local context which is available in specific templates."""
+    local_contexts = list()
+    dir = DATA_DIR / "local"
+
+    def make_context(name, regex=None):
+        """
+        Create a context with the given name and make it available to templates
+        matching the regex.
+
+        If regex is omitted, uses name instead.
+        """
+        context = Context(name, dir)
+        local_contexts.append((regex or name, context.data))
+        return context
+
+    spots = make_context("spots.html")
+    spots.add_from_csv("spots.csv")
+    for spot in spots.data["spots"]:
+        spot["id"] = spot["name"].lower().replace(" ", "-").replace("'", "")
+    return local_contexts
+
+
 class Context:
     def __init__(self, name, source_dir):
         self.data = dict()

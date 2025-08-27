@@ -1,0 +1,25 @@
+{% extends "base/_base.html" %}
+
+{% block page_heading %}Training spots{% endblock %}
+
+{% block main_content %}
+<section class="section">
+  <div class="content">
+    <h2 class="section__heading">About</h2>
+    <p class="section__body-text">This is a list of spots we train at. It is not an exhaustive list of parkour spots in London. If you have any suggestions, please let us know.</p>
+    <p class="section__body-text">A
+      <a href="https://what3words.com/" target="_blank">What3Words</a>
+      link is provided for each spot. This is where we will meet up for sessions at this spot.</p>
+  </div>
+</section>
+{% for spot in spots %}
+{% set color_class = loop.cycle('section--color-alternate', '') %}
+<section class="section {{ color_class }}">
+  <div class="content">
+    <h2 class="section__heading" id="{{ spot.id }}">{{ spot.name }}</h2>
+    <p class="section__body-text"><a href="https://what3words.com/{{ spot.what3words }}" target="_blank">///{{ spot.what3words }}</a></p>
+    <p class="section__body-text">{{ spot.description }}</p>
+  </div>
+</section>
+{% endfor %}
+{% endblock %}
