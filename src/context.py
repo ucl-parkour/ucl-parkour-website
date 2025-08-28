@@ -43,6 +43,8 @@ def get_local():
     spots.add_from_csv("spots.csv")
     for spot in spots.data["spots"]:
         spot["id"] = spot["name"].lower().replace(" ", "-").replace("'", "")
+
+    make_context("committee.html").add_from_csv("committee_members.csv")
     return local_contexts
 
 
