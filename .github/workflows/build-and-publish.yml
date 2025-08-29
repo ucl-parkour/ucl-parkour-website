@@ -1,6 +1,8 @@
 name: build-and-publish
 run-name: Build and publish by ${{ github.actor }}
-on: workflow_dispatch
+on:
+  push:
+    branches: prod
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
