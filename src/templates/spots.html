@@ -8,7 +8,7 @@
     <h2 class="section__heading">About</h2>
     <p class="section__body-text">This is a list of spots we train at. It is not an exhaustive list of parkour spots in London. If you have any suggestions, please let us know.</p>
     <p class="section__body-text">A
-      <a href="https://what3words.com/" target="_blank">What3Words</a>
+      <a href="https://what3words.com/" class="link" target="_blank">What3Words</a>
       link is provided for each spot. This is where we will meet up for sessions at this spot.</p>
   </div>
 </section>
@@ -17,7 +17,7 @@
 <section class="section {{ color_class }}">
   <div class="content">
     <h2 class="section__heading" id="{{ spot.id }}">{{ spot.name }}</h2>
-    <p class="section__body-text"><a href="https://what3words.com/{{ spot.what3words }}" target="_blank">///{{ spot.what3words }}</a></p>
+    <p class="section__body-text"><a href="https://what3words.com/{{ spot.what3words }}" class="link" target="_blank">///{{ spot.what3words }}</a></p>
     <p class="section__body-text">{{ spot.description }}</p>
   </div>
 </section>
