@@ -1,5 +1,6 @@
 import csv
 import os
+import tomllib
 from pathlib import Path
 
 
@@ -14,6 +15,8 @@ def get_global(dev_mode):
     for filename in os.listdir(dir):
         if filename.endswith(".csv"):
             global_context.add_from_csv(filename)
+        elif filename.endswith(".toml"):
+            global_context.add_from_toml(filename)
 
     if dev_mode:
         # GitHub pages handles the missing .html extension but local-server
@@ -75,3 +78,14 @@ class Context:
         with open(self.path_from_filename(filename), newline="") as f:
             lines = f.readlines()
         self.data[entryname] = list(csv.DictReader(lines))
+
+    def add_from_toml(self, filename):
+        """Adds the data from the TOML file located in source_dir."""
+        with open(self.path_from_filename(filename), "rb") as f:
+            data = tomllib.load(f)
+
+        for entry in data:
+            if entry in self.data:
+                print("Warning: Duplicate context data in "
+                      f"{self.name}.{entry}.")
+            self.data[entry] = data[entry]
