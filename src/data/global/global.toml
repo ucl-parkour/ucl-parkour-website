@@ -9,6 +9,7 @@ union_page_url = "https://studentsunionucl.org/clubs-societies/parkour-club"
 whatsapp_url = "https://chat.whatsapp.com/F2tSCH3QVvs52Ydlr93Lw4"
 
 [pages]
+home = { display_name = "Home", url = "/" }
 committee = { display_name = "Committee", url = "/committee" }
 contact = { display_name = "Contact us", url = "/contact-us" }
 spots = { display_name = "Training spots", url = "/spots" }
