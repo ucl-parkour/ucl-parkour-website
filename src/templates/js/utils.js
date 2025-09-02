@@ -21,7 +21,6 @@ if (window.matchMedia) {
 }
 
 // Mobile dropdown menu
-console.log(document.querySelectorAll(".js-dropdown"));
 for (const menu of document.querySelectorAll(".js-dropdown")) {
   registerDropdownMenu(menu);
 }
