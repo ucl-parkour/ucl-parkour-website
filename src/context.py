@@ -59,17 +59,15 @@ class Context:
         self.name = name
         self.source_dir = source_dir
 
-    def add_from_csv(self, filename, entryname=None):
+    def add_from_csv(self, filename):
         """
         Adds the data from the CSV file located in source_dir and assigns it
         the given entryname.
 
         If entryname is omitted, uses filename, without the extension.
         """
-        if entryname is None:
-            basename = os.path.basename(filename)
-            entryname = os.path.splitext(basename)[0]
-
+        basename = os.path.basename(filename)
+        entryname = os.path.splitext(basename)[0]
         self.warn_if_entry_already_exists(entryname)
 
         with open(self.path_from_filename(filename), newline="") as f:
