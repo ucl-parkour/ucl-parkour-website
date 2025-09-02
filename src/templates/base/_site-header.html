@@ -4,14 +4,14 @@
       <a href="." class="site-header__item site-header__item--link">Parkour Club</a>
     </section>
     <section class="site-header__item-group site-header__item-group--desktop">
-      {% for item in header_items %}
-      <a href="{{ item.url }}" class="site-header__item site-header__item--link">{{ item.label }}</a>
+      {% for page in header_pages %}
+      <a href="{{ page.url }}" class="site-header__item site-header__item--link">{{ page.display_name }}</a>
       {% endfor %}
     </section>
     <section class="site-header__item-group site-header__item-group--mobile js-dropdown">
       <button class="site-header__item js-dropdown__button">≡</button>
-      {% for item in header_items %}
-      <a href="{{ item.url }}" class="site-header__item site-header__item--link js-dropdown__item" hidden>{{ item.label }}</a>
+      {% for page in header_pages %}
+      <a href="{{ page.url }}" class="site-header__item site-header__item--link js-dropdown__item" hidden>{{ page.display_name }}</a>
       {% endfor %}
     </section>
   </nav>

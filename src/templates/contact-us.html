@@ -7,7 +7,7 @@
   <div class="content">
     <h2 class="section__heading">WhatsApp Community</h2>
     <p class="section__body-text">Join our
-      <a href="{{ whatsapp_url }}" class="link">WhatsApp community</a>
+      <a href="{{ club.whatsapp_url }}" class="link">WhatsApp community</a>
       for our most up-to-date communications, and to chat and connect with fellow members and the committee!</p>
     <p class="section__body-text">This is our primary channel for communicating updates during sessions and socials, so we highly recommend joining!</p>
   </div>
@@ -16,7 +16,7 @@
   <div class="content">
     <h2 class="section__heading">Instagram</h2>
     <p class="section__body-text">Follow us
-      <a href="{{ instagram_url }}" class="link">{{ instagram_tag }}</a>
+      <a href="{{ club.instagram_url }}" class="link">{{ club.instagram_tag }}</a>
       for session summary and special event posts. You can also DM us with any queries you may have!</p>
   </div>
 </section>
@@ -24,7 +24,7 @@
   <div class="content">
     <h2 class="section__heading">Email</h2>
     <p class="section__body-text">You can email us at
-      <a href="mailto:{{ email_address }}" class="link">{{ email_address }}</a>.</p>
+      <a href="mailto:{{ club.email_address }}" class="link">{{ club.email_address }}</a>.</p>
   </div>
 </section>
 <section class="section section--color-alternate">
@@ -32,7 +32,7 @@
     <h2 class="section__heading">In person!</h2>
     <p class="section__body-text">Join us at one of our sessions!</p>
     <p class="section__body-text">You can find out where and when our next session is and get a free Taster membership from our
-      <a href="{{ union_page_url }}">Union page</a>!</p>
+      <a href="{{ club.union_page_url }}">Union page</a>!</p>
   </div>
 </section>
 {% endblock %}

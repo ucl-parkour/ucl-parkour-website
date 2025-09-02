@@ -11,19 +11,21 @@ def get_global(dev_mode):
     """Returns the global context which is available in all templates."""
     dir = DATA_DIR / "global"
     global_context = Context("global", dir)
+    data = global_context.data
 
-    for filename in os.listdir(dir):
-        if filename.endswith(".csv"):
-            global_context.add_from_csv(filename)
-        elif filename.endswith(".toml"):
-            global_context.add_from_toml(filename)
+    global_context.add_from_toml("global.toml")
+
+    data["header_pages"] = list()
+    for id in global_context.data["header_page_ids"]:
+        data["header_pages"].append(data["pages"][id])
 
     if dev_mode:
         # GitHub pages handles the missing .html extension but local-server
         # local-server does not.
-        for item in global_context.data["header_items"]:
-            item["url"] += ".html"
-    return global_context.data
+        for page in data["pages"].values():
+            page["url"] += ".html"
+
+    return data
 
 
 def get_local():
@@ -57,9 +59,6 @@ class Context:
         self.name = name
         self.source_dir = source_dir
 
-    def path_from_filename(self, filename):
-        return self.source_dir / filename
-
     def add_from_csv(self, filename, entryname=None):
         """
         Adds the data from the CSV file located in source_dir and assigns it
@@ -71,9 +70,7 @@ class Context:
             basename = os.path.basename(filename)
             entryname = os.path.splitext(basename)[0]
 
-        if entryname in self.data:
-            print("Warning: Duplicate context data in "
-                  f"{self.name}.{entryname}.")
+        self.warn_if_entry_already_exists(entryname)
 
         with open(self.path_from_filename(filename), newline="") as f:
             lines = f.readlines()
@@ -84,8 +81,14 @@ class Context:
         with open(self.path_from_filename(filename), "rb") as f:
             data = tomllib.load(f)
 
-        for entry in data:
-            if entry in self.data:
-                print("Warning: Duplicate context data in "
-                      f"{self.name}.{entry}.")
-            self.data[entry] = data[entry]
+        for entryname in data:
+            self.warn_if_entry_already_exists(entryname)
+            self.data[entryname] = data[entryname]
+
+    def warn_if_entry_already_exists(self, entryname):
+        if entryname in self.data:
+            print("Warning: Duplicate context data in "
+                  f"{self.name}.{entryname}.")
+
+    def path_from_filename(self, filename):
+        return self.source_dir / filename
