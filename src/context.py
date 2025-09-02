@@ -25,6 +25,7 @@ def get_global(dev_mode):
         for page in data["pages"].values():
             page["url"] += ".html"
 
+        data["club"]["domain_name"] = ""
     return data
 
 

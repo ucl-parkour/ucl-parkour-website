@@ -211,6 +211,20 @@ body {
   padding-block: 1rem;
 }
 
+.link-target__copy-button {
+  font-size: 0.8em;
+  cursor: pointer;
+  opacity: 0;
+  text-decoration: none;
+}
+.link-target__copy-button:hover {
+  opacity: 1;
+}
+.link-target__copy-button:active,
+.link-target:hover .link-target__copy-button:not(:hover) {
+  opacity: 0.5;
+}
+
 .section--color-alternate {
   background-color: var(--col-bg-alternate);
 }
