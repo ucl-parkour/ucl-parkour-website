@@ -15,9 +15,10 @@ def get_global(dev_mode):
 
     context.add_from_toml("global.toml")
 
-    context["header_pages"] = list()
+    header_pages = list()
     for id in context["header_page_ids"]:
-        context["header_pages"].append(context["pages"][id])
+        header_pages.append(context["pages"][id])
+    context["header_pages"] = header_pages
 
     if dev_mode:
         # GitHub pages handles the missing .html extension but local-server
