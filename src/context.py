@@ -22,8 +22,9 @@ def get_global(dev_mode):
     if dev_mode:
         # GitHub pages handles the missing .html extension but local-server
         # does not.
-        for page in data["pages"].values():
-            page["url"] += ".html"
+        for id, page in data["pages"].items():
+            if id != "home":
+                page["url"] += ".html"
 
         data["club"]["domain_name"] = ""
     return data
