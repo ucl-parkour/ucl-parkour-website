@@ -1,6 +1,7 @@
 import csv
 import os
 import tomllib
+from collections import UserDict
 from pathlib import Path
 
 
@@ -10,24 +11,23 @@ DATA_DIR = Path(__file__).parent.resolve() / "data"
 def get_global(dev_mode):
     """Returns the global context which is available in all templates."""
     dir = DATA_DIR / "global"
-    global_context = Context("global", dir)
-    data = global_context.data
+    context = Context("global", dir)
 
-    global_context.add_from_toml("global.toml")
+    context.add_from_toml("global.toml")
 
-    data["header_pages"] = list()
-    for id in global_context.data["header_page_ids"]:
-        data["header_pages"].append(data["pages"][id])
+    context["header_pages"] = list()
+    for id in context["header_page_ids"]:
+        context["header_pages"].append(context["pages"][id])
 
     if dev_mode:
         # GitHub pages handles the missing .html extension but local-server
         # does not.
-        for id, page in data["pages"].items():
+        for id, page in context["pages"].items():
             if id != "home":
                 page["url"] += ".html"
 
-        data["club"]["domain_name"] = ""
-    return data
+        context["club"]["domain_name"] = ""
+    return context
 
 
 def get_local():
@@ -48,18 +48,18 @@ def get_local():
 
     spots = make_context("spots.html")
     spots.add_from_csv("spots.csv")
-    for spot in spots.data["spots"]:
+    for spot in spots["spots"]:
         spot["id"] = spot["name"].lower().replace(" ", "-").replace("'", "")
 
     make_context("committee.html").add_from_csv("committee_members.csv")
     return local_contexts
 
 
-class Context:
-    def __init__(self, name, source_dir):
-        self.data = dict()
+class Context(UserDict):
+    def __init__(self, name, source_dir, *args, **kwargs):
         self.name = name
         self.source_dir = source_dir
+        super().__init__(*args, **kwargs)
 
     def add_from_csv(self, filename):
         """
