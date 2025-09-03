@@ -11,9 +11,7 @@ DATA_DIR = Path(__file__).parent.resolve() / "data"
 def get_global(dev_mode):
     """Returns the global context which is available in all templates."""
     dir = DATA_DIR / "global"
-    context = Context("global", dir)
-
-    context.add_from_toml("global.toml")
+    context = make_context("global", dir, toml_files=["global.toml"])
 
     header_pages = list()
     for id in context["header_page_ids"]:
@@ -33,33 +31,36 @@ def get_global(dev_mode):
 
 def get_local():
     """Returns the local context which is available in specific templates."""
-    contexts = list()
     dir = DATA_DIR / "local"
 
-    def make_context(name, regex=None):
-        """
-        Create a context with the given name and make it available to templates
-        matching the regex.
-
-        If regex is omitted, uses name instead.
-        """
-        context = Context(name, dir)
-        contexts.append((regex or name, context.data))
-        return context
-
-    spots = make_context("spots.html")
-    spots.add_from_csv("spots.csv")
+    spots = make_context("spots", dir, csv_files=["spots.csv"]).data
     for spot in spots["spots"]:
         spot["id"] = spot["name"].lower().replace(" ", "-").replace("'", "")
 
-    make_context("committee.html").add_from_csv("committee_members.csv")
-    return contexts
+    committee = make_context("committee", dir, csv_files=[
+                             "committee_members.csv"]).data
+
+    return [
+        ("spots.html", spots),
+        ("committee.html", committee)
+    ]
+
+
+def make_context(name, source_dir, toml_files=None, csv_files=None):
+    context = Context(name)
+
+    for filename in toml_files or []:
+        context.add_from_toml(source_dir / filename)
+
+    for filename in csv_files or []:
+        context.add_from_csv(source_dir / filename)
+
+    return context
 
 
 class Context(UserDict):
-    def __init__(self, name, source_dir, *args, **kwargs):
+    def __init__(self, name, *args, **kwargs):
         self.name = name
-        self.source_dir = source_dir
         super().__init__(*args, **kwargs)
 
     def add_from_csv(self, filename):
@@ -73,13 +74,13 @@ class Context(UserDict):
         entryname = os.path.splitext(basename)[0]
         self.warn_if_entry_already_exists(entryname)
 
-        with open(self.path_from_filename(filename), newline="") as f:
+        with open(filename, newline="") as f:
             lines = f.readlines()
         self.data[entryname] = list(csv.DictReader(lines))
 
     def add_from_toml(self, filename):
         """Adds the data from the TOML file located in source_dir."""
-        with open(self.path_from_filename(filename), "rb") as f:
+        with open(filename, "rb") as f:
             data = tomllib.load(f)
 
         for entryname in data:
@@ -90,6 +91,3 @@ class Context(UserDict):
         if entryname in self.data:
             print("Warning: Duplicate context data in "
                   f"{self.name}.{entryname}.")
-
-    def path_from_filename(self, filename):
-        return self.source_dir / filename
