@@ -33,7 +33,7 @@ def get_global(dev_mode):
 
 def get_local():
     """Returns the local context which is available in specific templates."""
-    local_contexts = list()
+    contexts = list()
     dir = DATA_DIR / "local"
 
     def make_context(name, regex=None):
@@ -44,7 +44,7 @@ def get_local():
         If regex is omitted, uses name instead.
         """
         context = Context(name, dir)
-        local_contexts.append((regex or name, context.data))
+        contexts.append((regex or name, context.data))
         return context
 
     spots = make_context("spots.html")
@@ -53,7 +53,7 @@ def get_local():
         spot["id"] = spot["name"].lower().replace(" ", "-").replace("'", "")
 
     make_context("committee.html").add_from_csv("committee_members.csv")
-    return local_contexts
+    return contexts
 
 
 class Context(UserDict):
