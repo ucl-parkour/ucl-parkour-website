@@ -1,7 +1,7 @@
 header_page_ids = ["spots", "committee", "contact"]
 
 [club]
-domain_name = "uclparkour.club"
+url = "https://uclparkour.club"
 email_address = "su-parkour.club@ucl.ac.uk"
 instagram_tag = "@uclparkour"
 instagram_url = "https://www.instagram.com/uclparkour"
