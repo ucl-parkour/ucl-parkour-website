@@ -60,8 +60,14 @@
   --col-link-hover: var(--col-neutral-500);
   --col-link-active: var(--col-blue-900);
 
+  --col-shadow: var(--col-fg);
+
   /* Lengths */
   --len-header-padding: 2rem;
+
+  /* Shadows */
+  --shadow-block: var(--col-shadow) 5px 5px;
+  --shadow-page-headings: var(--col-neutral-100) 5px 5px;
 }
 
 :root.dark {
@@ -193,6 +199,7 @@ body {
   color: var(--col-blue-100);
   font-size: 3rem;
   font-weight: 700;
+  box-shadow: var(--shadow-page-headings);
 }
 
 .page-header__text--supplementary {
@@ -222,6 +229,15 @@ body {
 .section__image {
   aspect-ratio: 1 / 1;
   max-width: 15rem;
+  box-shadow: var(--shadow-block);
+}
+
+.section__heading--highlight {
+  color: var(--col-blue-100);
+  background-color: var(--col-purple-500);
+  padding-inline: 0.5rem;
+  padding-block: 0.2rem;
+  box-shadow: var(--shadow-block);
 }
 
 .link-target__copy-button {

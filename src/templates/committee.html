@@ -14,7 +14,8 @@
   <div class="content section__row">
     <img class="section__image" src="/img/committee/{{ member.image_name }}" alt="A photograph of the face of {{ member.name }}.">
     <div>
-      <h2 class="section__heading">{{ member.role }}: {{ member.name }}</h2>
+      <h2 class="section__heading section__heading--highlight"><i>{{ member.role }}</i>
+        {{ member.name }}</h2>
       <p class="section__body-text">{{ member.course }}</p>
       <p class="section__body-text">{{ member.role_explanation }}</p>
       <p class="section__body-text">Fun fact: "{{ member.fun_fact }}"</p>
