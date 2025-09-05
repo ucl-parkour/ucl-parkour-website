@@ -223,7 +223,7 @@ body {
 .section__row {
   display: flex;
   flex-direction: var(--row-direction);
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .section__image {
