@@ -22,17 +22,18 @@
 </section>
 <section class="section">
   <div class="content">
-    <h2 class="section__heading">Email</h2>
-    <p class="section__body-text">You can email us at
-      <a href="mailto:{{ club.email_address }}" class="link">{{ club.email_address }}</a>.</p>
+    <h2 class="section__heading">In person!</h2>
+    <p class="section__body-text">The best way to contact us is to join us at one of our sessions!</p>
+    <p class="section__body-text">You can find out where and when our next session is and get a free Taster membership from our
+      <a href="{{ club.union_page_url }}">Union page</a>!</p>
   </div>
 </section>
 <section class="section">
   <div class="content">
-    <h2 class="section__heading">In person!</h2>
-    <p class="section__body-text">Join us at one of our sessions!</p>
-    <p class="section__body-text">You can find out where and when our next session is and get a free Taster membership from our
-      <a href="{{ club.union_page_url }}">Union page</a>!</p>
+    <h2 class="section__heading">Email</h2>
+    <p class="section__body-text">We recommend trying one of the above methods first, but you can email us at
+      <a href="mailto:{{ club.email_address }}" class="link">{{ club.email_address }}</a>.</p>
+    <p class="section__body-text">You may want to contact us by email if we need to verify your identity to handle your query.</p>
   </div>
 </section>
 {% endblock %}
