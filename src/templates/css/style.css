@@ -206,7 +206,7 @@ body {
 /* Sections */
 .section {
   --row-direction: row;
-  padding-block: 1rem;
+  padding-block: 2rem;
   background-color: var(--col-bg);
 }
 .section:nth-child(2n + 1) {
