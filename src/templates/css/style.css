@@ -186,7 +186,6 @@ body {
 .page-header__text {
   display: inline;
   padding-inline: 0.5rem;
-  width: fit-content;
 }
 
 .page-header__text--heading {
