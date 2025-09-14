@@ -52,8 +52,16 @@
   --col-bg-alternate: var(--col-neutral-200);
   --col-footer-bg: var(--col-neutral-800);
   --col-footer-fg: var(--col-neutral-200);
-  --col-message-bg: var(--col-orange-300);
-  --col-message-fg: var(--col-orange-900);
+
+  --col-message-bg: var(--col-purple-300);
+  --col-message-fg: var(--col-purple-900);
+  --col-message-link-hover: var(--col-purple-700);
+  --col-message-link-active: var(--col-purple-100);
+
+  --col-warning-bg: var(--col-orange-300);
+  --col-warning-fg: var(--col-orange-900);
+  --col-warning-link-hover: var(--col-orange-700);
+  --col-warning-link-active: var(--col-orange-100);
 
   --col-link: var(--col-neutral-600);
   --col-link-visited: var(--col-purple-600);
@@ -76,8 +84,11 @@
   --col-bg-alternate: var(--col-neutral-800);
   --col-footer-bg: var(--col-neutral-1000);
   --col-footer-fg: var(--col-neutral-300);
-  --col-message-bg: var(--col-orange-400);
-  --col-message-fg: var(--col-orange-900);
+
+  --col-message-bg: var(--col-purple-400);
+  --col-message-fg: var(--col-purple-900);
+  --col-warning-bg: var(--col-orange-400);
+  --col-warning-fg: var(--col-orange-900);
 
   --col-link: var(--col-neutral-300);
   --col-link-visited: var(--col-purple-300);
@@ -164,8 +175,14 @@ body {
   color: var(--col-message-fg);
   --col-link: var(--col-message-fg);
   --col-link-visited: var(--col-message-fg);
-  --col-link-hover: var(--col-orange-700);
-  --col-link-active: var(--col-orange-100);
+  --col-link-hover: var(--col-message-link-hover);
+  --col-link-active: var(--col-message-link-active);
+}
+.message--warning {
+  --col-message-bg: var(--col-warning-bg);
+  --col-message-fg: var(--col-warning-fg);
+  --col-message-link-hover: var(--col-warning-link-hover);
+  --col-message-link-active: var(--col-warning-link-active);
 }
 
 .message__content {
