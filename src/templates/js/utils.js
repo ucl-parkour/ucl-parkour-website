@@ -31,7 +31,6 @@ function registerDropdownMenu(menu) {
   button.addEventListener("click", toggle);
 
   function toggle() {
-    menu.classList.toggle("site-header__item-group--mobile-open");
     for (const item of items) {
       item.toggleAttribute("hidden");
     }
