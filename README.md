@@ -1,21 +1,9 @@
 # UCL Parkour Club Website
 
-## Usage
+This repository contains the files needed to build the Parkour Club website.
 
-After cloning, set up [Poetry] and run the build script:
+## Contributing
 
-```bash
-poetry sync
-# See the Poetry docs for how to activate the virtual environment in your shell.
-eval $(poetry env activate)
-python -m build_dev
-```
+See [CONTRIBUTING.md].
 
-To serve the site locally, use something like [live-server]:
-
-```bash
-live-server build
-```
-
-[Poetry]: https://python-poetry.org/
-[live-server]: https://www.npmjs.com/package/live-server
+[CONTRIBUTING.md]: https://github.com/ucl-parkour/ucl-parkour-website/blob/main/CONTRIBUTING.md
