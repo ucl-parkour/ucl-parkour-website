@@ -7,7 +7,7 @@ def render(dev_mode=False):
     site = Site.make_site(
         searchpath="src/templates",
         outpath="build",
-        staticpaths=["./css/", "./img/", "./fonts/"],
+        staticpaths=["./css/", "./img/", "./fonts/", "./js/"],
         env_globals=context.get_global(dev_mode),
         contexts=context.get_local(),
     )
