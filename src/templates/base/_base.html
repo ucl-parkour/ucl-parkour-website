@@ -17,10 +17,13 @@
     {% include "base/_site-header.html" %}
     {% block messages %}
     <div class="message">
+      {% if self.page_heading() != "Welcome Fair" %}
       <div class="content message__content">
-        <p>Taster sessions are live! Check them out on our
-          <a href="{{ club.union_page_url }}" class="link">Union page</a>!</p>
+        <p>Looking for the
+          <a class="link" href="{{ pages.welcome_fair.url }}">Welcome Fair</a>
+          page?</p>
       </div>
+      {% endif %}
     </div>
     {% endblock %}
     <main class="main">
