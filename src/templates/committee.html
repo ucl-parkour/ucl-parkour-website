@@ -4,23 +4,23 @@
 
 {% block main_content %}
 <section class="section">
-  <div class="content">
-    <h2 class="section__heading">About</h2>
-    <p class="section__body-text">The committee are the group of people responsible for running Parkour Club. You can find us at any of our sessions!</p>
-  </div>
+	<div class="content">
+		<h2 class="section__heading">About</h2>
+		<p class="section__body-text">The committee are the group of people responsible for running Parkour Club. You can find us at any of our sessions!</p>
+	</div>
 </section>
 {% for member in committee_members %}
 <section class="section">
-  <div class="content section__row">
-    <img class="section__image" src="/img/committee/{{ member.image_name }}" alt="A photograph of the face of {{ member.name }}.">
-    <div>
-      <h2 class="section__heading section__heading--highlight"><i>{{ member.role }}</i>
-        {{ member.name }}</h2>
-      <p class="section__body-text">{{ member.course }}</p>
-      <p class="section__body-text">{{ member.role_explanation }}</p>
-      <p class="section__body-text">Fun fact: "{{ member.fun_fact }}"</p>
-    </div>
-  </div>
+	<div class="content section__row">
+		<img class="section__image" src="/img/committee/{{ member.image_name }}" alt="A photograph of the face of {{ member.name }}.">
+		<div>
+			<h2 class="section__heading section__heading--highlight"><i>{{ member.role }}</i>
+			{{ member.name }}</h2>
+			<p class="section__body-text">{{ member.course }}</p>
+			<p class="section__body-text">{{ member.role_explanation }}</p>
+			<p class="section__body-text">Fun fact: "{{ member.fun_fact }}"</p>
+		</div>
+	</div>
 </section>
 {% endfor %}
 {% endblock %}
