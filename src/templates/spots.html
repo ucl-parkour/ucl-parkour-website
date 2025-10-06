@@ -8,15 +8,13 @@
 		<h2 class="section__heading">About</h2>
 		<p class="section__body-text">This is a list of spots we train at. It is not an exhaustive list of parkour spots in London. If you have suggestions for spots, or if you have an image for a spot missing one, please
 			<a href="{{ pages.contact.url }}" class="link">get in touch</a>!</p>
-		<p class="section__body-text">A
-			<a href="https://what3words.com/" class="link">What3Words</a>
-			link is provided for each spot. This is where we will meet up for sessions at this spot.</p>
+		<p class="section__body-text">A location link is provided for each spot. This is where we will meet up for sessions at this spot.</p>
 	</div>
 </section>
 {% macro spot_info(spot) %}
 <h2 class="section__heading link-target" id="{{ spot.id }}">{{ spot.name }}
 	<a class="link-target__copy-button" href="{{ club.url }}{{ pages.spots.url }}#{{ spot.id }}">🔗</a></h2>
-<p class="section__body-text"><a href="https://what3words.com/{{ spot.what3words }}" class="link">///{{ spot.what3words }}</a></p>
+<p class="section__body-text"><a href="{{ spot.location }}" class="link">Location</a></p>
 <p class="section__body-text">{{ spot.description }}</p>
 {% endmacro %}
 {% for spot in spots %}
