@@ -14,3 +14,4 @@ committee = { display_name = "Committee", url = "/committee" }
 contact = { display_name = "Contact us", url = "/contact-us" }
 spots = { display_name = "Training spots", url = "/spots" }
 welcome_fair = { display_name = "Welcome fair", url = "/welcome-fair" }
+elections = { display_name = "Elections", url = "/elections" }
