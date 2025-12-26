@@ -16,12 +16,13 @@
 	<body>
 		{% include "base/_site-header.html" %}
 		{% block messages %}
+		{% for message in messages %}
 		<div class="message">
 			<div class="content message__content">
-				<p>Get your <a class="link" href="https://studentsunionucl.org/clubs-societies/parkour-club">membership</a>
-					today!</p>
+				{{ message.content }}
 			</div>
 		</div>
+		{% endfor %}
 		{% endblock %}
 		<main class="main">
 			<header class="page-header">

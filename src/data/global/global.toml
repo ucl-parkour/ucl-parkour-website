@@ -15,3 +15,6 @@ contact = { display_name = "Contact us", url = "/contact-us" }
 spots = { display_name = "Training spots", url = "/spots" }
 welcome_fair = { display_name = "Welcome fair", url = "/welcome-fair" }
 elections = { display_name = "Elections", url = "/elections" }
+
+[[messages]]
+content = '<p>Get your <a class="link" href="https://studentsunionucl.org/clubs-societies/parkour-club">membership</a> today!</p>'
