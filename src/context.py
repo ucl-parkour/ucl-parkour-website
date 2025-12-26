@@ -25,6 +25,7 @@ def get_global(dev_mode):
             if id != "home":
                 page["url"] += ".html"
 
+        # Use relative URLs during local development.
         context["club"]["domain_name"] = ""
     return context
 
