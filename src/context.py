@@ -1,5 +1,3 @@
-import csv
-import os
 import tomllib
 from collections import UserDict
 from pathlib import Path
@@ -34,12 +32,12 @@ def get_local():
     """Returns the local context which is available in specific templates."""
     dir = DATA_DIR / "local"
 
-    spots = make_context("spots", dir, csv_files=["spots.csv"]).data
+    spots = make_context("spots", dir, toml_files=["spots.toml"]).data
     for spot in spots["spots"]:
         spot["id"] = spot["name"].lower().replace(" ", "-").replace("'", "")
 
-    committee = make_context("committee", dir, csv_files=[
-                             "committee_members.csv"]).data
+    committee = make_context("committee", dir, toml_files=[
+                             "committee_members.toml"]).data
 
     return [
         ("spots.html", spots),
@@ -47,14 +45,11 @@ def get_local():
     ]
 
 
-def make_context(name, source_dir, toml_files=None, csv_files=None):
+def make_context(name, source_dir, toml_files=None):
     context = Context(name)
 
     for filename in toml_files or []:
         context.add_from_toml(source_dir / filename)
-
-    for filename in csv_files or []:
-        context.add_from_csv(source_dir / filename)
 
     return context
 
@@ -63,21 +58,6 @@ class Context(UserDict):
     def __init__(self, name, *args, **kwargs):
         self.name = name
         super().__init__(*args, **kwargs)
-
-    def add_from_csv(self, filename):
-        """
-        Adds the data from the CSV file located in source_dir and assigns it
-        the given entryname.
-
-        If entryname is omitted, uses filename, without the extension.
-        """
-        basename = os.path.basename(filename)
-        entryname = os.path.splitext(basename)[0]
-        self.warn_if_entry_already_exists(entryname)
-
-        with open(filename, newline="") as f:
-            lines = f.readlines()
-        self.data[entryname] = list(csv.DictReader(lines))
 
     def add_from_toml(self, filename):
         """Adds the data from the TOML file located in source_dir."""
