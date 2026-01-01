@@ -55,12 +55,4 @@ class Context(UserDict):
         """Adds the data from the TOML file located in source_dir."""
         with open(self.source_dir / filename, "rb") as f:
             data = tomllib.load(f)
-
-        for entryname in data:
-            self.warn_if_entry_already_exists(entryname)
-            self.data[entryname] = data[entryname]
-
-    def warn_if_entry_already_exists(self, entryname):
-        if entryname in self.data:
-            print("Warning: Duplicate context data in "
-                  f"{self.name}.{entryname}.")
+        self.data = data
