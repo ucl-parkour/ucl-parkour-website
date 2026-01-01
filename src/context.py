@@ -9,7 +9,7 @@ DATA_DIR = Path(__file__).parent.resolve() / "data"
 def get_global(dev_mode):
     """Returns the global context which is available in all templates."""
     dir = DATA_DIR / "global"
-    context = make_context("global", dir, toml_files=["global.toml"])
+    context = Context("global", dir)
 
     header_pages = list()
     for id in context["header_page_ids"]:
@@ -32,12 +32,11 @@ def get_local():
     """Returns the local context which is available in specific templates."""
     dir = DATA_DIR / "local"
 
-    spots = make_context("spots", dir, toml_files=["spots.toml"]).data
+    spots = Context("spots", dir).data
     for spot in spots["spots"]:
         spot["id"] = spot["name"].lower().replace(" ", "-").replace("'", "")
 
-    committee = make_context("committee", dir, toml_files=[
-                             "committee_members.toml"]).data
+    committee = Context("committee_members", dir).data
 
     return [
         ("spots.html", spots),
@@ -45,23 +44,16 @@ def get_local():
     ]
 
 
-def make_context(name, source_dir, toml_files=None):
-    context = Context(name)
-
-    for filename in toml_files or []:
-        context.add_from_toml(source_dir / filename)
-
-    return context
-
-
 class Context(UserDict):
-    def __init__(self, name, *args, **kwargs):
+    def __init__(self, name, source_dir, *args, **kwargs):
         self.name = name
+        self.source_dir = source_dir
         super().__init__(*args, **kwargs)
+        self.add_from_toml(f"{name}.toml")
 
     def add_from_toml(self, filename):
         """Adds the data from the TOML file located in source_dir."""
-        with open(filename, "rb") as f:
+        with open(self.source_dir / filename, "rb") as f:
             data = tomllib.load(f)
 
         for entryname in data:
