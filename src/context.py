@@ -21,8 +21,6 @@ def get_global(dev_mode):
             if id != "home":
                 page["url"] += ".html"
 
-        # Use relative URLs during local development.
-        main["club"]["domain_name"] = ""
 
     spots = load_context_data("spots")
     for spot in spots["spots"]:
