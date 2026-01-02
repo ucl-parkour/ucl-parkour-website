@@ -8,30 +8,39 @@ DATA_DIR = Path(__file__).parent.resolve() / "data"
 def get_global(dev_mode):
     """Returns the global context which is available in all templates."""
     main = load_context_data("main")
-
-    header_pages = list()
-    for id in main["header_page_ids"]:
-        header_pages.append(main["pages"][id])
-    main["header_pages"] = header_pages
-
-    if dev_mode:
-        # GitHub pages handles the missing .html extension but local-server
-        # does not.
-        for id, page in main["pages"].items():
-            if id != "home":
-                page["url"] += ".html"
-
+    main["header_pages"] = [main["pages"][id]
+                            for id in main["header_page_ids"]]
 
     spots = load_context_data("spots")
     for spot in spots["spots"]:
-        spot["id"] = spot["name"].lower().replace(" ", "-").replace("'", "")
+        spot["id"] = slugify(spot["name"])
 
     committee = load_context_data("committee_members")
 
-    return main | spots | committee
+    if dev_mode:
+        # We miss the .html extension in URLs because this looks better, and
+        # GitHub Pages handles this correctly. In development, we may be using
+        # tools such as local-server, which do not handle this correctly.
+        # So we add the extension to the URLs.
+        pages = (page for page in main["pages"].values() if page["url"] != "/")
+        for page in pages:
+            page["url"] += ".html"
+
+    merged_context = main | spots | committee
+    return merged_context
 
 
 def load_context_data(name):
+    """Loads the TOML file from the data directory called {name}.toml."""
     path = DATA_DIR / f"{name}.toml"
     with open(path, "rb") as f:
         return tomllib.load(f)
+
+
+def slugify(name):
+    """
+    Converts a name into a URL slug.
+
+    For example, "Abbey Road" becomes "abbey-road".
+    """
+    return name.lower().replace(" ", "-").replace("'", "")
