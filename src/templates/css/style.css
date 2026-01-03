@@ -248,6 +248,10 @@ body {
   gap: 2rem;
 }
 
+.section__row-text {
+  flex-grow: 1;
+}
+
 .section__image {
   aspect-ratio: 1 / 1;
   max-width: 15rem;
