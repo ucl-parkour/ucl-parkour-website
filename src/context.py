@@ -30,11 +30,20 @@ def get_global(dev_mode):
     return merged_context
 
 
-def load_context_data(name):
-    """Loads the TOML file from the data directory called {name}.toml."""
+def load_context_data(name, as_subtable=False):
+    """
+    Loads the TOML file from the data directory called {name}.toml.
+
+    If as_subtable is given, nests the result in a dictionary under the key
+    {name}.
+    """
     path = DATA_DIR / f"{name}.toml"
     with open(path, "rb") as f:
-        return tomllib.load(f)
+        data = tomllib.load(f)
+
+    if as_subtable:
+        return {name: data}
+    return data
 
 
 def slugify(name):
