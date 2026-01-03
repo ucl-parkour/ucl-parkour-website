@@ -284,6 +284,10 @@ body {
   padding-top: 1rem;
 }
 
+.committee-page-key {
+  font-weight: bold;
+}
+
 /* Site footer */
 .site-footer {
   background-color: var(--col-footer-bg);

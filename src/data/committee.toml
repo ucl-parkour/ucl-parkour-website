@@ -1,0 +1,56 @@
+[[positions]]
+name = "President"
+role = "Oversees the operations of Parkour Club as a whole. Primary link between us and the Students' Union."
+incumbent = "mariusz"
+
+[[positions]]
+name = "Treasurer"
+role = "Manages the club's finances. Secondary link between us and the Union."
+incumbent = "ivan"
+
+[[positions]]
+name = "Welfare Officer"
+role = "Your go-to person for welfare concerns you may have regarding Parkour Club. Oversees our participation in the TeamUCL Against Hate programme."
+incumbent = "amy"
+
+[[positions]]
+name = "Events Officer"
+role = "Organises our trips, post-session socials, and collabs with other groups."
+taken_on_by = "Mariusz"
+
+[[positions]]
+name = "Social Media Secretary"
+role = "Runs our social media presence, including making posts and responding to messages."
+taken_on_by = "Ivan"
+
+[[positions]]
+name = "Training Officer"
+role = "Communicates with coaches and organises our regular training sessions."
+incumbent = "sanjay"
+
+
+[members]
+
+[members.mariusz]
+name = "Mariusz Tang"
+course = "Computer Graphics Vision and Imaging MSc"
+fun_fact = "I built this website!"
+image_name = "mariusz.jpg"
+
+[members.ivan]
+name = "Ivan Ng"
+course = "2nd Year Bachelor of Laws (LLB)"
+fun_fact = "I took more than 90% of the parkour group selfies HAHAHAHA"
+image_name = "ivan.jpg"
+
+[members.amy]
+name = "Amy Ko"
+course = "2nd Year Astrophysics BSc"
+fun_fact = "My hair colour was inspired by Monster (energy drink)"
+image_name = "amy.jpeg"
+
+[members.sanjay]
+name = "Sanjay Ashwin"
+course = "3rd Year Classics BA"
+fun_fact = "I love safety"
+image_name = "sanjay.jpeg"

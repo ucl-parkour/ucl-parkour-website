@@ -15,7 +15,9 @@ def get_global(dev_mode):
     for spot in spots["spots"]:
         spot["id"] = slugify(spot["name"])
 
-    committee = load_context_data("committee_members")
+    committee = load_context_data("committee", as_subtable=True)
+    committee["committee"]["all_positions_filled"] = all(
+        "incumbent" in pos.keys() for pos in committee["committee"]["positions"])
 
     if dev_mode:
         # We miss the .html extension in URLs because this looks better, and
