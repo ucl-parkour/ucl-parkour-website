@@ -267,7 +267,7 @@ body {
 }
 
 .link-target__copy-button {
-  font-size: 0.8em;
+  font-size: 0.8rem;
   cursor: pointer;
   opacity: 0;
   text-decoration: none;
