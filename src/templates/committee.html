@@ -1,49 +1,65 @@
-{% extends "base/_base.html" %}
-
-{% block page_heading %}Meet the committee!{% endblock %}
-
-{% block main_content %}
+{% extends "base/_base.html" %} {% block page_heading %}Meet the committee!{%
+endblock %} {% block main_content %}
 <section class="section">
-	<div class="content">
-		<h2 class="section__heading">About</h2>
-		<p class="section__body-text">The committee are the group of people responsible for running Parkour Club. You can find us at any of our sessions!</p>
-	</div>
+  <div class="content">
+    <h2 class="section__heading">About</h2>
+    <p class="section__body-text">
+      The committee are the group of people responsible for running Parkour
+      Club. You can find us at any of our sessions!
+    </p>
+  </div>
 </section>
-{% for position in committee.positions if position.incumbent %}
-{% set member = committee.members[position.incumbent] %}
+{% for position in committee.positions if position.incumbent %} {% set member =
+committee.members[position.incumbent] %}
 <section class="section">
-	<div class="content section__row">
-		<img class="section__image" src="/img/committee/{{ member.image_name }}" alt="A photograph of the face of {{ member.name }}.">
-		<div class="section__row-text">
-			<h2 class="section__heading section__heading--highlight"><i>{{ position.name }}</i>
-			{{ member.name }}</h2>
-			<p class="section__body-text"><span class="committee-page-key">Responsibility:</span>
-			{{ position.role }}</p>
-			<p class="section__body-text"><span class="committee-page-key">Course:</span>
-			{{ member.course }}</p>
-			<p class="section__body-text"><span class="committee-page-key">Fun fact:</span>
-			"{{ member.fun_fact }}"</p>
-		</div>
-	</div>
+  <div class="content section__row">
+    <img
+      class="section__image"
+      src="/img/committee/{{ member.image_name }}"
+      alt="A photograph of the face of {{ member.name }}."
+    />
+    <div class="section__row-text">
+      <h2 class="section__heading section__heading--highlight">
+        <i>{{ position.name }}</i> {{ member.name }}
+      </h2>
+      <p class="section__body-text">
+        <span class="committee-page-key">Responsibility:</span> {{ position.role
+        }}
+      </p>
+      <p class="section__body-text">
+        <span class="committee-page-key">Course:</span> {{ member.course }}
+      </p>
+      <p class="section__body-text">
+        <span class="committee-page-key">Fun fact:</span> "{{ member.fun_fact
+        }}"
+      </p>
+    </div>
+  </div>
 </section>
-{% endfor %}
-{% if not committee.all_positions_filled %}
+{% endfor %} {% if not committee.all_positions_filled %}
 <section class="section">
-	<div class="content">
-		<h2 class="section__heading">Vacant positions</h2>
-		<p class="section__body-text">Below are the unfilled committee positions. Their responsibilities are being taken on as extra work by the current committee members. If you are a current member, and interested in lending us a hand, please <a href="{{ pages.contact.url }}" class="link">get in touch</a>!</p>
-	</div>
+  <div class="content">
+    <h2 class="section__heading">Vacant positions</h2>
+    <p class="section__body-text">
+      Below are the unfilled committee positions. Their responsibilities are
+      being taken on as extra work by the current committee members. If you are
+      a current member, and interested in lending us a hand, please
+      <a href="{{ pages.contact.url }}" class="link">get in touch</a>!
+    </p>
+  </div>
 </section>
 {% for position in committee.positions if not position.incumbent %}
 <section class="section">
-	<div class="content">
-		<h2 class="section__heading">{{ position.name }}</h2>
-		<p class="section__body-text"><span class="committee-page-key">Responsibility:</span>
-		{{ position.role }}</p>
-		<p class="section__body-text"><span class="committee-page-key">Taken on by:</span>
-		{{ position.taken_on_by }}</p>
-	</div>
+  <div class="content">
+    <h2 class="section__heading">{{ position.name }}</h2>
+    <p class="section__body-text">
+      <span class="committee-page-key">Responsibility:</span> {{ position.role
+      }}
+    </p>
+    <p class="section__body-text">
+      <span class="committee-page-key">Taken on by:</span> {{
+      position.taken_on_by }}
+    </p>
+  </div>
 </section>
-{% endfor %}
-{% endif %}
-{% endblock %}
+{% endfor %} {% endif %} {% endblock %}

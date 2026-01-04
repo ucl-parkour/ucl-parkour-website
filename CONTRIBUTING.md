@@ -52,9 +52,9 @@ See the [relevant entry] in the staticjinja docs for more information.
 ### Conventions
 
 - Use the `club` global context variable to store details about the club that
-is subject to change and/or often repeated.
+  is subject to change and/or often repeated.
 - Use the `pages` global context variable to link to other pages on the site. Add
-to this variable when creating a new page.
+  to this variable when creating a new page.
 - Use [BEM] when writing CSS.
 
 [BEM]: https://getbem.com/introduction/

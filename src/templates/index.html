@@ -1,41 +1,66 @@
-{% extends "base/_base.html" %}
-
-{% block title %}Home{% endblock %}
-{% block page_headings_group %}
-<p class="page-header__text page-header__text--supplementary">Students' Union UCL</p>
-{{ super() }}
-{% endblock %}
-
-{% block page_heading %}Parkour Club{% endblock %}
-
+{% extends "base/_base.html" %} {% block title %}Home{% endblock %} {% block
+page_headings_group %}
+<p class="page-header__text page-header__text--supplementary">
+  Students' Union UCL
+</p>
+{{ super() }} {% endblock %} {% block page_heading %}Parkour Club{% endblock %}
 {% block main_content %}
 <section class="section">
-	<div class="content">
-		<h2 class="section__heading">Welcome</h2>
-		<p class="section__body-text">Welcome to Parkour Club, the best club in the Union*!</p>
-		<p class="section__body-text">We offer both coached and open sessions every week where we get together to train parkour as a group. See below for our schedule.</p>
-		<p class="section__body-text">After sessions we hold a variety of socials including group dinners, movie and games nights, and themed socials on special occasions. Attending these is a great way form amazing friendships as you connect with fellow members!</p>
-		<p class="section__body-text">All of our sessions are open to everybody, regardless of experience or skill level, so please do come along and give parkour a try! You can get a free Taster membership on our
-			<a href="{{ club.union_page_url }}" class="link">Union</a>
-			page.</p>
-		<p class="section__body-text">*by at least one account :)</p>
-	</div>
+  <div class="content">
+    <h2 class="section__heading">Welcome</h2>
+    <p class="section__body-text">
+      Welcome to Parkour Club, the best club in the Union*!
+    </p>
+    <p class="section__body-text">
+      We offer both coached and open sessions every week where we get together
+      to train parkour as a group. See below for our schedule.
+    </p>
+    <p class="section__body-text">
+      After sessions we hold a variety of socials including group dinners, movie
+      and games nights, and themed socials on special occasions. Attending these
+      is a great way form amazing friendships as you connect with fellow
+      members!
+    </p>
+    <p class="section__body-text">
+      All of our sessions are open to everybody, regardless of experience or
+      skill level, so please do come along and give parkour a try! You can get a
+      free Taster membership on our
+      <a href="{{ club.union_page_url }}" class="link">Union</a>
+      page.
+    </p>
+    <p class="section__body-text">*by at least one account :)</p>
+  </div>
 </section>
 <section class="section">
-	<div class="content">
-		<h2 class="section__heading">Training schedule</h2>
-		<p class="section__body-text">Wednesdays 2-4pm: Coached outdoor training in various locations.</p>
-		<p class="section__body-text">Saturdays 3-5pm: Open indoor training at Bloomsbury Fitness.</p>
-		<p class="section__body-text">This schedule applies in Terms 1 and 2 only, excluding Reading weeks. We may also host training and/or social sessions at other times.</p>
-		<p class="section__body-text">Please join our <a href="{{ club.whatsapp_url }}" class="link">WhatsApp community</a>
-			for the most up-to-date information! You can also see upcoming events on our <a href="{{ club.union_events_url }}" class="link">Events</a>
-			page.</p>
-	</div>
+  <div class="content">
+    <h2 class="section__heading">Training schedule</h2>
+    <p class="section__body-text">
+      Wednesdays 2-4pm: Coached outdoor training in various locations.
+    </p>
+    <p class="section__body-text">
+      Saturdays 3-5pm: Open indoor training at Bloomsbury Fitness.
+    </p>
+    <p class="section__body-text">
+      This schedule applies in Terms 1 and 2 only, excluding Reading weeks. We
+      may also host training and/or social sessions at other times.
+    </p>
+    <p class="section__body-text">
+      Please join our
+      <a href="{{ club.whatsapp_url }}" class="link">WhatsApp community</a>
+      for the most up-to-date information! You can also see upcoming events on
+      our
+      <a href="{{ club.union_events_url }}" class="link">Events</a> page.
+    </p>
+  </div>
 </section>
 <section class="section">
-	<div class="content">
-		<h2 class="section__heading">Trips</h2>
-		<p class="section__body-text">We hold several trips out of London every year. In Terms 1 and 2, we hold trips to other places in the UK to explore their parkour spots. Think Brighton or Sheffield. In the summer we run our annual trip abroad!</p>
-	</div>
+  <div class="content">
+    <h2 class="section__heading">Trips</h2>
+    <p class="section__body-text">
+      We hold several trips out of London every year. In Terms 1 and 2, we hold
+      trips to other places in the UK to explore their parkour spots. Think
+      Brighton or Sheffield. In the summer we run our annual trip abroad!
+    </p>
+  </div>
 </section>
 {% endblock %}

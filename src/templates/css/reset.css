@@ -6,23 +6,23 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 * {
-  margin: 0;
+    margin: 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  html {
-    interpolate-size: allow-keywords;
-  }
+    html {
+        interpolate-size: allow-keywords;
+    }
 }
 
 body {
-  line-height: 1.5;
-  hanging-punctuation: first last;
-  -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    hanging-punctuation: first last;
+    -webkit-font-smoothing: antialiased;
 }
 
 img,
@@ -30,15 +30,15 @@ picture,
 video,
 canvas,
 svg {
-  display: block;
-  max-width: 100%;
+    display: block;
+    max-width: 100%;
 }
 
 input,
 button,
 textarea,
 select {
-  font: inherit;
+    font: inherit;
 }
 
 p,
@@ -48,13 +48,13 @@ h3,
 h4,
 h5,
 h6 {
-  overflow-wrap: break-word;
-  width: fit-content;
+    overflow-wrap: break-word;
+    width: fit-content;
 }
 
 p {
-  text-wrap: pretty;
-  max-width: 70ch;
+    text-wrap: pretty;
+    max-width: 70ch;
 }
 h1,
 h2,
@@ -62,5 +62,5 @@ h3,
 h4,
 h5,
 h6 {
-  text-wrap: balance;
+    text-wrap: balance;
 }

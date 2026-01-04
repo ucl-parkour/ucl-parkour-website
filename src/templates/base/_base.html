@@ -1,42 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>{% block title %}{{ self.page_heading() }}{% endblock %}—Parkour Club</title>
-		<link rel="icon" type="image/x-icon" href="/img/favicon.ico">
-		<meta name="author" content="Students' Union UCL Parkour Club">
-		<meta name="copyright" content="Students' Union UCL Parkour Club">
-		<meta name="theme-color" content="#290806">
-		<meta name="color-scheme" content="dark light">
-		<link rel="stylesheet" href="/css/reset.css">
-		<link rel="stylesheet" href="/css/style.css">
-		<script defer src="/js/utils.js"></script>
-	</head>
-	<body>
-		{% include "base/_site-header.html" %}
-		{% block messages %}
-		{% for message in messages %}
-		<div class="message">
-			<div class="content message__content">
-				{{ message.content }}
-			</div>
-		</div>
-		{% endfor %}
-		{% endblock %}
-		<main class="main">
-			<header class="page-header">
-				<img src="/img/banner.jpg" alt="A large group of Parkour Club members leaning against Brighton's 'Big Wall'." class="page-header__banner-image">
-				<div class="content">
-					<hgroup class="page-header__headings">
-						{% block page_headings_group %}
-						<h1 class="page-header__text page-header__text--heading">{% block page_heading required %}{% endblock %}</h1>
-						{% endblock %}
-					</hgroup>
-				</div>
-			</header>
-			{% block main_content required %}{% endblock %}
-		</main>
-		{% include "base/_site-footer.html" %}
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% block title %}{{ self.page_heading() }}{% endblock %}—Parkour Club
+    </title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+    <meta name="author" content="Students' Union UCL Parkour Club" />
+    <meta name="copyright" content="Students' Union UCL Parkour Club" />
+    <meta name="theme-color" content="#290806" />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script defer src="/js/utils.js"></script>
+  </head>
+  <body>
+    {% include "base/_site-header.html" %} {% block messages %} {% for message
+    in messages %}
+    <div class="message">
+      <div class="content message__content">{{ message.content }}</div>
+    </div>
+    {% endfor %} {% endblock %}
+    <main class="main">
+      <header class="page-header">
+        <img
+          src="/img/banner.jpg"
+          alt="A large group of Parkour Club members leaning against Brighton's 'Big Wall'."
+          class="page-header__banner-image"
+        />
+        <div class="content">
+          <hgroup class="page-header__headings">
+            {% block page_headings_group %}
+            <h1 class="page-header__text page-header__text--heading">
+              {% block page_heading required %}{% endblock %}
+            </h1>
+            {% endblock %}
+          </hgroup>
+        </div>
+      </header>
+      {% block main_content required %}{% endblock %}
+    </main>
+    {% include "base/_site-footer.html" %}
+  </body>
 </html>
