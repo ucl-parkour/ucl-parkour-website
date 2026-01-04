@@ -30,3 +30,8 @@ repos:
     rev: v0.9.3
     hooks:
       - id: taplo-format
+
+  - repo: https://github.com/rbubley/mirrors-prettier
+    rev: v3.7.4
+    hooks:
+      - id: prettier
