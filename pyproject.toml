@@ -3,5 +3,8 @@ name = "parkour-club-website"
 requires-python = ">=3.13,<4.0"
 dependencies = ["staticjinja>=5,<6"]
 
+[tool.isort]
+profile = "black"
+
 [tool.poetry]
 package-mode = false
