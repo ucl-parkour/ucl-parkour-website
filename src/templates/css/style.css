@@ -309,7 +309,7 @@ body {
 }
 .site-footer__logo--teamucl {
     /* Account for the blur in the SU logo.
-   * This will eventually be fixed by replacing the images. */
+    * This will eventually be fixed by replacing the images. */
     padding-top: calc(1rem + 2px);
 }
 
