@@ -58,3 +58,15 @@ See the [relevant entry] in the staticjinja docs for more information.
 - Use [BEM] when writing CSS.
 
 [BEM]: https://getbem.com/introduction/
+
+### Code style
+
+Install and run the [pre-commit] hooks. This will handle the code style
+requirements for this project.
+
+```bash
+pre-commit install
+pre-commit run --all-files
+```
+
+[pre-commit]: https://pre-commit.com/
