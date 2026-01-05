@@ -35,3 +35,8 @@ repos:
     rev: v3.7.4
     hooks:
       - id: prettier
+
+  - repo: https://github.com/PyCQA/flake8
+    rev: 7.3.0
+    hooks:
+      - id: flake8
