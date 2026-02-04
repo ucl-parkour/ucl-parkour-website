@@ -53,6 +53,12 @@ location = "https://maps.app.goo.gl/wtN7qTKrDccxoXFy7"
 description = "We came here for our 2024 Halloween session! Not an enormous amount to do at this spot but there are some really nice vault-height walls with lots of run-up space."
 
 [[spots]]
+name = "Paddington Recreation Ground"
+image_name = "paddington-rec.jpeg"
+location = "https://maps.app.goo.gl/C7gAewxPBXd7WRN69"
+description = "This spot has loads of bars and rails for laches, along with some walls and stumps. There's lots to do here!"
+
+[[spots]]
 name = "Stratford Calisthenics Park"
 image_name = "stratford-calisthenics-park.jpg"
 location = "https://maps.app.goo.gl/f5ta3W7ka8rdtAQx6"
