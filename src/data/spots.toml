@@ -29,6 +29,12 @@ location = "https://maps.app.goo.gl/s8sb4oGtNzkp8CUUA"
 description = "A recent addition to our list this spot has lots of open space for warmup minigames :)) There are loads of pres to try here a very long rail for balance and even an underbar to try!"
 
 [[spots]]
+name = "Caledonian Road"
+image_name = "caledonian-road.png"
+location = "https://maps.app.goo.gl/eSxygbRphBBLV3LTA"
+description = "A cool little spot with lots of walls. Great for open sessions. There's also a really tall wall for crazy wall runs :)"
+
+[[spots]]
 name = "Canada Water"
 image_name = "canada-water.jpeg"
 location = "https://maps.app.goo.gl/EP1NxpZCjcxPF3Lk8"
